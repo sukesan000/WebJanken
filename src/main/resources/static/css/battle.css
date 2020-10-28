@@ -1,0 +1,21 @@
+.tb-cell {
+  display: table;
+  width: 300px;
+  margin: 20px auto 40px auto;
+  text-align: left;
+}
+.tb-cell .row {
+  display: table-row;
+}
+.tb-cell .row .cell {
+  display: table-cell;
+  width: 300px;
+  padding: 20px 40px;
+  vertical-align: middle;
+  color: #fff;
+  background: #ccc;
+  text-align: center;
+}
+label {
+  padding: 10px;
+}
