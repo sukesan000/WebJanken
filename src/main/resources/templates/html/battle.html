@@ -6,16 +6,23 @@
 <link rel="stylesheet" th:href="@{/css/battle.css}">
 <script th:src="@{/js/battle.js}"></script> 
 </head>
-<body style = "margin:0 auto;">
+<body>
 	<h1>ジャンケンバトル</h1>
 	<h2>チェックボックスの中から出したい手を選んでください</h2>
 
-	<form id="form" method="post" action="@{/battle}">
-		<label>1 <input type="checkbox" name="auth1"></label>
-		<label>2 <input type="checkbox" name="auth2"></label>
-		<label>3 <input type="checkbox" name="auth3"></label>
-		<input type="submit" value="決定" />
+	<form action="/html/battle" method="post">
+		<div>
+			<input type="radio" id="radioA" name="radio1" value="STONE" />
+			<label for="radioA">ぐう</label>
+	    </div>
+	    <div>
+			<input type="radio" id="radioB" name="radio1" value="SCISSORS" />
+			<label for="radioB">ちょき</label>
+	    </div>
+	    <div>
+			<input type="radio" id="radioC" name="radio1" value="PAPER" />
+			<label for="radioC">ぱあ</label>
+	    </div>
 	</form>
-	
 </body>
 </html>
