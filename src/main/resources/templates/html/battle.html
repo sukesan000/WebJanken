@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Battle</title>
-<link rel="stylesheet" th:href="@{/css/battle.css}">
-<script th:src="@{/js/battle.js}"></script> 
+<!-- <link rel="stylesheet" th:href="@{/css/battle.css}">
+<script th:src="@{/js/battle.js}"></script> --> 
 </head>
 <body>
 	<h1>ジャンケンバトル</h1>
@@ -12,17 +12,19 @@
 
 	<form action="/html/battle" method="post">
 		<div>
-			<input type="radio" id="radioA" name="radio1" value="STONE" />
+			<input type="radio" id="radioA" name="radio1" value="グー" />
 			<label for="radioA">ぐう</label>
 	    </div>
 	    <div>
-			<input type="radio" id="radioB" name="radio1" value="SCISSORS" />
+			<input type="radio" id="radioB" name="radio1" value="チョキ" />
 			<label for="radioB">ちょき</label>
 	    </div>
 	    <div>
-			<input type="radio" id="radioC" name="radio1" value="PAPER" />
+			<input type="radio" id="radioC" name="radio1" value="パー" />
 			<label for="radioC">ぱあ</label>
 	    </div>
+	    <input type="submit" value="Click"/>
 	</form>
+	<p th:text="${msg}"></p>
 </body>
 </html>
