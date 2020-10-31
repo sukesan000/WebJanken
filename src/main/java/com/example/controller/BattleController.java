@@ -1,10 +1,13 @@
 package com.example.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
+
+import com.example.model.Character;
+import com.example.model.Cpu;
 
 @Controller
 public class BattleController {
@@ -14,10 +17,15 @@ public class BattleController {
 	}
 	
 	@PostMapping(value="/html/battle")
-	public ModelAndView send(@RequestParam(value="radio1")String radio1, ModelAndView model) {
-		String res = "";
-		res = "なに出した？     " + radio1;
-		model.addObject("msg", res);
-		return model;
+	public String send(@RequestParam(value="radio1")String radio1, Model model) {
+		Character cpu = new Cpu();
+		String playerHand = "";
+		String cpuHand = "";
+		cpuHand = cpu.showHand();
+		playerHand = "あなたの手: " + radio1; 
+		
+		model.addAttribute("playerHand", playerHand);
+		model.addAttribute("cpuHand", cpuHand);
+		return "/html/battle";
 	}
 }
