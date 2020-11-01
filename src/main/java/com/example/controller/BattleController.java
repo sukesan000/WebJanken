@@ -17,13 +17,15 @@ public class BattleController {
 	}
 	
 	@PostMapping(value="/html/battle")
-	public String send(@RequestParam(value="radio1")String radio1, Model model) {
+	public String send(@RequestParam(value="radio1", required=false)String radio1, Model model) {
 		Character cpu = new Cpu();
 		String playerHand = "";
 		String cpuHand = "";
 		cpuHand = cpu.showHand();
 		playerHand = "あなたの手: " + radio1; 
-		
+		if(radio1 == null) {
+			playerHand = "あなたの手: 入力されていません";
+		}
 		model.addAttribute("playerHand", playerHand);
 		model.addAttribute("cpuHand", cpuHand);
 		return "/html/battle";
