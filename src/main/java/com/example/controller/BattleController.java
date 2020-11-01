@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.model.Character;
 import com.example.model.Cpu;
+import com.example.model.Judge;
 
 @Controller
 public class BattleController {
@@ -17,17 +18,26 @@ public class BattleController {
 	}
 	
 	@PostMapping(value="/html/battle")
-	public String send(@RequestParam(value="radio1", required=false)String radio1, Model model) {
+	public String send(@RequestParam(value="radio1", required=false)int radio1, Model model) {
+		Judge judge = new Judge();
 		Character cpu = new Cpu();
-		String playerHand = "";
-		String cpuHand = "";
+		int playerHand = 0;
+		int cpuHand = 0;
+		String winWord = "";
+		String playerStringHand;
+		String cpuStringHand;
 		cpuHand = cpu.showHand();
-		playerHand = "あなたの手: " + radio1; 
-		if(radio1 == null) {
-			playerHand = "あなたの手: 入力されていません";
-		}
-		model.addAttribute("playerHand", playerHand);
-		model.addAttribute("cpuHand", cpuHand);
+		playerHand = radio1; 
+		playerStringHand = judge.printHand(playerHand);
+		cpuStringHand = judge.printHand(cpuHand);
+		winWord = judge.judgeJanken(playerHand, cpuHand);
+		//		if(radio1 == null) {
+//			playerHand = "あなたの手: 入力されていません";
+//		}
+		model.addAttribute("playerHand", playerStringHand);
+		model.addAttribute("cpuHand", cpuStringHand);
+		model.addAttribute("winWord", winWord);
+		
 		return "/html/battle";
 	}
 }

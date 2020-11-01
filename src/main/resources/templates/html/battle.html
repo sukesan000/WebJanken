@@ -12,20 +12,21 @@
 
 	<form action="/html/battle" method="post">
 		<div>
-			<input type="radio" id="radioA" name="radio1" value="グー" />
+			<input type="radio" id="radioA" name="radio1" value=0 />
 			<label for="radioA">ぐう</label>
 	    </div>
 	    <div>
-			<input type="radio" id="radioB" name="radio1" value="チョキ" />
+			<input type="radio" id="radioB" name="radio1" value=1 />
 			<label for="radioB">ちょき</label>
 	    </div>
 	    <div>
-			<input type="radio" id="radioC" name="radio1" value="パー" />
+			<input type="radio" id="radioC" name="radio1" value=2 />
 			<label for="radioC">ぱあ</label>
 	    </div>
 	    <input type="submit" value="Click"/>
 	</form>
-	<p th:text="${playerHand}"></p>
-	<p th:text="${cpuHand}"></p>
+	<p th:text="'あなたの手: ' + ${playerHand}"></p>
+	<p th:text="'CPUの手: ' + ${cpuHand}"></p>
+	<p th:text=${winWord}></p>
 </body>
 </html>

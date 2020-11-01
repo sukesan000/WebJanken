@@ -7,8 +7,8 @@ public class Character {
 	public static final int SCISSORS = 1;
 	public static final int PAPER = 2;
 	
-	public String showHand() {
-		String hand = "";
+	public int showHand() {
+		int hand = 0;
 		return hand;
 	}
 	

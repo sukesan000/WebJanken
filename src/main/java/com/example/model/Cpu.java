@@ -3,15 +3,15 @@ package com.example.model;
 public class Cpu extends Character{
 	public String name = "CPU";
 	
-	public String showHand() {
-		String hand = "";
+	public int showHand() {
+		int hand = 0;
 		double randomNum = Math.random() * 3;	
 		if(randomNum < 1) {
-			hand = "CPUの手:　グー";
+			hand = 0;
 		}else if(randomNum < 2) {
-			hand = "CPUの手:　チョキ";
+			hand = 1;
 		}else if(randomNum < 3) {
-			hand = "CPUの手:　パー";
+			hand = 2;
 		}
 		
 		return hand;
